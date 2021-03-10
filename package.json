@@ -1,8 +1,8 @@
 {
   "name": "@herickborgo/annotations",
-  "version": "0.1.0-beta",
+  "version": "0.1.1-beta",
   "description": "A tool for reading annotations",
-  "main": "index.ts",
+  "main": "./src/annotation.ts",
   "scripts": {
     "test": "jest",
     "deploy": "yarn publish"
