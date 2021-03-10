@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "A tool for reading annotations",
   "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "test": "node node_modules/jest/bin/jest"
+  },
   "repository": "https://github.com/herickborgo/annotations.git",
   "keywords": [
     "annotations"
