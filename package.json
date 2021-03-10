@@ -1,10 +1,11 @@
 {
-  "name": "annotations",
-  "version": "0.1.0",
+  "name": "@herickborgo/annotations",
+  "version": "0.1.0-beta",
   "description": "A tool for reading annotations",
   "main": "index.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "deploy": "yarn publish"
   },
   "repository": "https://github.com/herickborgo/annotations.git",
   "keywords": [
@@ -23,5 +24,8 @@
   },
   "dependencies": {
     "typescript": "^4.2.3"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
