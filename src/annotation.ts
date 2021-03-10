@@ -14,9 +14,10 @@ export abstract class Annotation {
     }
 
     protected setValues(file: string, method: string): void {
-        const readFile = fs.readFileSync(file).toString();
-        const lines = readFile.split('\n');
+        const readFile: string = fs.readFileSync(file).toString();
+        const lines: Array<string> = readFile.split('\n');
         let annotation: string = '';
+
         lines.forEach((line: string) => {
             annotation = line.includes(`@${this.name}`) ? line.substr(line.indexOf(`@${this.name}`)).replace(`@${this.name}`, '').trim() : annotation;
             
