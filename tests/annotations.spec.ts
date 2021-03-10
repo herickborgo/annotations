@@ -10,8 +10,8 @@ function method() {
 
 describe('Annotations test', () => {
     class TestAnnotation extends Annotations.Annotation {}
-    
-    const testAnnotation = new TestAnnotation();
+
+    const testAnnotation: TestAnnotation = new TestAnnotation();
 
     test('Assert metadata', () => {
         expect(testAnnotation.getValues(__filename, 'method')).toEqual([ '123' ]);
