@@ -6,6 +6,3 @@ dist/
 # files
 yarn.lock
 yarn-error.log
-coverage/clover.xml
-coverage/lcov.info
-coverage/coverage-final.json
