@@ -1,13 +1,13 @@
 {
   "name": "@herickborgo/annotations",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A tool for reading annotations",
   "main": "./src/annotation.js",
   "scripts": {
     "test": "jest",
     "test-coverage": "jest --coverage",
     "build": "tsc",
-    "deploy": "yarn publish"
+    "deploy": "npm publish"
   },
   "repository": "https://github.com/herickborgo/annotations.git",
   "keywords": [
