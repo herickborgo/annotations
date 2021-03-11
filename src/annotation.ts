@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+const fs = require('fs');
 
 abstract class Annotation {
     private name: string;
@@ -23,7 +23,7 @@ abstract class Annotation {
                 annotation = line.substr(line.indexOf(`@${this.name}`)).replace(`@${this.name}`, '').trim();
                 return true;
             }
-            
+
             if (line.match(/const|function/g)) {
                 if (line.includes(method) && !!annotation) {
                     this.values = annotation.split(',');

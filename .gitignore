@@ -1,6 +1,7 @@
 # directories
 node_modules/
-coverage/lcov-report/
+coverage/
+dist/
 
 # files
 yarn.lock
