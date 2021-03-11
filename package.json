@@ -1,8 +1,8 @@
 {
   "name": "@herickborgo/annotations",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A tool for reading annotations",
-  "main": "./src/annotation.ts",
+  "main": "./src/annotation.js",
   "scripts": {
     "test": "jest",
     "test-coverage": "jest --coverage",
