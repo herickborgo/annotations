@@ -5,7 +5,7 @@
   "main": "./dist/annotation.js",
   "scripts": {
     "test": "jest",
-    "test-coverage": "jest --coverage",
+    "test-coverage": "yarn test --coverage",
     "build": "tsc",
     "deploy": "yarn publish"
   },

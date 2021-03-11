@@ -1,26 +1,25 @@
 const fs = require('fs');
 
 abstract class Annotation {
-    private name: string;
+    private annotation: string;
     private values: Array<any>;
 
     constructor() {
-        this.name = `${this.constructor.name.charAt(0).toLowerCase()}${this.constructor.name.slice(1)}`;
+        this.annotation = `${this.constructor.name.charAt(0).toLowerCase()}${this.constructor.name.slice(1)}`;
         this.values = [];
     }
 
     public getAnnotation(): string {
-        return this.name;
+        return this.annotation;
     }
 
     protected setValues(file: string, method: string): void {
         const readFile: string = fs.readFileSync(file).toString();
         const lines: Array<string> = readFile.split('\n');
         let annotation: string = '';
-
         lines.every((line: string) => {
-            if (line.includes(`@${this.name}`)) {
-                annotation = line.substr(line.indexOf(`@${this.name}`)).replace(`@${this.name}`, '').trim();
+            if (line.includes(`@${this.annotation}`)) {
+                annotation = line.substr(line.indexOf(`@${this.annotation}`)).replace(`@${this.annotation}`, '').trim();
                 return true;
             }
 
