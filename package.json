@@ -5,6 +5,7 @@
   "main": "./src/annotation.ts",
   "scripts": {
     "test": "jest",
+    "test-coverage": "jest --coverage",
     "deploy": "yarn publish"
   },
   "repository": "https://github.com/herickborgo/annotations.git",

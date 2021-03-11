@@ -1,4 +1,4 @@
-import * as Annotations from '../src/annotation';
+import { Annotation } from '../src/annotation';
 
 /**
  * @testAnnotation 123
@@ -8,16 +8,25 @@ function method() {
     return true;
 };
 
-describe('Annotations test', () => {
-    class TestAnnotation extends Annotations.Annotation {}
+function methodWithoutAnnotation() {
+    return true;
+}
 
-    const testAnnotation: TestAnnotation = new TestAnnotation();
+describe('Annotations test', () => {
+    class TestAnnotation extends Annotation {}
+
+    test('Assert annotation', () => {
+        const testAnnotation: TestAnnotation = new TestAnnotation();
+        expect(testAnnotation.getAnnotation()).toEqual('testAnnotation');
+    });
 
     test('Assert metadata', () => {
+        const testAnnotation: TestAnnotation = new TestAnnotation();
         expect(testAnnotation.getValues(__filename, 'method')).toEqual([ '123' ]);
     });
 
-    test('Assert annotation', () => {
-        expect(testAnnotation.getAnnotation()).toEqual('testAnnotation');
+    test('Assert metadata', () => {
+        const testAnnotation: TestAnnotation = new TestAnnotation();
+        expect(testAnnotation.getValues(__filename, 'methodWithoutAnnotation')).toEqual([]);
     });
 });

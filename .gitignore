@@ -1,6 +1,10 @@
 # directories
 node_modules/
+coverage/lcov-report/
 
 # files
 yarn.lock
 yarn-error.log
+coverage/clover.xml
+coverage/lcov.info
+coverage/coverage-final.json

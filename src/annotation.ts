@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-export abstract class Annotation {
+abstract class Annotation {
     private name: string;
     private values: Array<any>;
 
@@ -18,10 +18,24 @@ export abstract class Annotation {
         const lines: Array<string> = readFile.split('\n');
         let annotation: string = '';
 
-        lines.forEach((line: string) => {
-            annotation = line.includes(`@${this.name}`) ? line.substr(line.indexOf(`@${this.name}`)).replace(`@${this.name}`, '').trim() : annotation;
+        lines.every((line: string) => {
+            if (line.includes(`@${this.name}`)) {
+                annotation = line.substr(line.indexOf(`@${this.name}`)).replace(`@${this.name}`, '').trim();
+                return true;
+            }
             
-            this.values = line.match(/const|function/g) && line.includes(method) ? !!annotation ? annotation.split(',') : [] : this.values;
+            if (line.match(/const|function/g)) {
+                if (line.includes(method) && !!annotation) {
+                    this.values = annotation.split(',');
+                    return false;
+                }
+                if (!line.includes(method)) {
+                    annotation = '';
+                    return true;
+                }
+            }
+
+            return true;
         });
     }
 
@@ -30,3 +44,5 @@ export abstract class Annotation {
         return this.values;
     }
 }
+
+export { Annotation };
