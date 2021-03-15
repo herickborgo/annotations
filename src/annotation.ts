@@ -1,6 +1,7 @@
 const fs = require('fs');
+const path = require('path');
 
-abstract class Annotation {
+class Annotation {
     private annotation: string;
     private values: Array<any>;
 
@@ -41,6 +42,29 @@ abstract class Annotation {
     public getValues(file: string, method: string): object {
         this.setValues(file, method);
         return this.values;
+    }
+
+    public static getAnnotationByClassName(className: string): string{
+        const config = Annotation.getConfig();
+        const values = Object.values(config);
+        let annotation = `${className.charAt(0).toLowerCase()}${className.slice(1)}`;
+        values.forEach((value, key) => {
+            if (value === className) {
+                annotation = Object.keys(config)[key];
+            }
+        })
+
+        return annotation;
+    }
+
+    public static getConfig() {
+        const configurationFile = `${path.dirname(require.main?.filename)}/annotations.config.js`;
+
+        if (fs.existsSync(configurationFile)) {
+            return require(configurationFile).config;
+        }
+
+        throw new Error('Configure file does not exists');
     }
 }
 
