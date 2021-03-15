@@ -1,6 +1,6 @@
 {
   "name": "@herickborgo/annotations",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "A tool for reading annotations",
   "main": "./dist/annotation.js",
   "scripts": {
