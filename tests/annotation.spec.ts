@@ -31,6 +31,6 @@ describe('Annotations test', () => {
     });
 
     test('Assert get annotation by class name', () => {
-        expect(TestAnnotation.getAnnotationByClassName('Annotation')).toEqual('validation');
+        expect(TestAnnotation.getConfig()).toEqual({ validation: 'src/annotation' });
     });
 });

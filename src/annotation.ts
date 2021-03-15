@@ -44,19 +44,6 @@ class Annotation {
         return this.values;
     }
 
-    public static getAnnotationByClassName(className: string): string{
-        const config = Annotation.getConfig();
-        const values = Object.values(config);
-        let annotation = `${className.charAt(0).toLowerCase()}${className.slice(1)}`;
-        values.forEach((value, key) => {
-            if (value === className) {
-                annotation = Object.keys(config)[key];
-            }
-        })
-
-        return annotation;
-    }
-
     public static getConfig() {
         const configurationFile = `${path.dirname(require.main?.filename)}/annotations.config.js`;
 
